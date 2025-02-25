@@ -1,22 +1,20 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
-import { Cliente } from 'src/modules/clientes/entities/cliente.entity/cliente.entity';
-import { Endereco } from 'src/modules/clientes/entities/endereco.entity/endereco.entity';
-import { Telefone } from 'src/modules/clientes/entities/telefone.entity/telefone.entity';
+import { join } from 'path';
 
 dotenv.config();
 
+console.log(process.env.DATABASE_URL);
+
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-  entities: [Cliente, Telefone, Endereco],
-  synchronize: true,
+  url: process.env.DATABASE_URL,
+  entities: [join(__dirname, '../modules/**/entities/*.entity{.ts,.js}')],
+  synchronize: process.env.NODE_ENV !== 'production',
   autoLoadEntities: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
 };
