@@ -8,7 +8,11 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - DATABASE_URL=postgresql://postgres.hnzksnyroathyiugouzu:teddy7735$$@aws-0-sa-east-1.pooler.supabase.com:5432/postgres?sslmode=require
+      - DB_HOST=aws-0-sa-east-1.pooler.supabase.com
+      - DB_PORT=5432
+      - DB_USER=postgres.hnzksnyroathyiugouzu
+      - DB_PASS=teddy7735$$
+      - DB_NAME=postgres
       - PORT=3000
     volumes:
       - .:/app
