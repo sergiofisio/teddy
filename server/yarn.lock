@@ -937,7 +937,7 @@
     "@napi-rs/nice-win32-ia32-msvc" "1.0.1"
     "@napi-rs/nice-win32-x64-msvc" "1.0.1"
 
-"@nestjs/cli@^11.0.0":
+"@nestjs/cli@^11.0.4":
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/@nestjs/cli/-/cli-11.0.4.tgz#e37d16beabd3a9904954b05be7dbd25d28e835e3"
   integrity sha512-EITofIvoxqHt/A5M2VcihyDqmZ0b8s8k8xLI/gzSNqmgkZ4caYOq87LKCENG862jGb0aC7ROXpYnDjxMqnFjOQ==
